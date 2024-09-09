@@ -1,12 +1,18 @@
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
-int factorial(int n) {
+long long factorial(int n) {
   if (n == 0) {
     return 1;
   } else {
-    return n * factorial(n - 1);
+    long long result = n * factorial(n - 1); 
+    if (result < 0) { // Проверка на переполнение
+      cout << "Переполнение! Факториал слишком большой для типа данных." << endl;
+      return numeric_limits<long long>::max(); // Возвращаем максимальное значение
+    }
+    return result;
   }
 }
 
