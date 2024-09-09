@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int factorial(int n) {
+  if (n == 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+int main() {
+  int num;
+  cout << "Введите целое число: ";
+  cin >> num;
+
+  if (num < 0) {
+    cout << "Факториал не определен для отрицательных чисел." << endl;
+  } else {
+    cout << "Факториал числа " << num << " равен: " << factorial(num) << endl;
+  }
+
+  return 0;
+}
